@@ -63,7 +63,19 @@ export default function App() {
       <Button
         title="Press to schedule a notification"
         onPress={async () => {
-          await schedulePushNotification();
+          try {
+            await Notifications.setNotificationChannelAsync("default", {
+              name: "default",
+              importance: Notifications.AndroidImportance.MAX,
+              vibrationPattern: [0, 250, 250, 250],
+              lightColor: "#FF231F7C",
+            });
+
+            const result = await Notifications.requestPermissionsAsync();
+            console.log(result);
+          } catch (error) {
+            console.log(error);
+          }
         }}
       />
     </View>
