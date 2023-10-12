@@ -13,7 +13,15 @@
       },
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "channel": "production",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "resourceClass": "m-medium"
+      }
+    }
   },
   "submit": {
     "production": {}
